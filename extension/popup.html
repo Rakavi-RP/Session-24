@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Modifier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            width: 600px;
+            padding: 20px;
+            font-family: 'Nunito', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .image-preview {
+            width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .image-preview img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 300px;
+        }
+
+        .drop-zone {
+            border: 2px dashed #ccc;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .drop-zone:hover {
+            border-color: #4caf50;
+            background: #f1f8e9;
+        }
+
+        .goal-selector {
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            width: 100%;
+            margin-bottom: 15px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+        }
+
+        .results-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .result-section {
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .result-section:last-child {
+            border-bottom: none;
+        }
+
+        .result-section h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4caf50;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Recipe specific styling */
+        .recipe-content {
+            line-height: 1.6;
+        }
+
+        .recipe-content h1, .recipe-content h2 {
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .recipe-content ul, .recipe-content ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .recipe-content li {
+            margin-bottom: 8px;
+        }
+
+        .recipe-content p {
+            margin-bottom: 15px;
+        }
+
+        .recipe-content strong {
+            font-weight: 700;
+        }
+
+        .dietary-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            color: white;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            background-color: #4caf50;
+        }
+
+        .vegan-badge { background-color: #43a047; }
+        .vegetarian-badge { background-color: #8bc34a; }
+        .low-carb-badge { background-color: #2196f3; }
+        .high-protein-badge { background-color: #ff9800; }
+
+        .export-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .export-button:hover {
+            background-color: #43a047;
+        }
+
+        /* Timeline component styling */
+        .cooking-timeline {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f1f8e9;
+            border: 1px solid #c5e1a5;
+        }
+
+        .timeline-bar {
+            display: flex;
+            height: 30px;
+            background-color: #e8f5e9;
+            margin: 15px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .prep-time {
+            background-color: #aed581;
+            height: 100%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cook-time {
+            background-color: #66bb6a;
+            height: 100%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .timeline-legend {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        .prep-color {
+            background-color: #aed581;
+        }
+
+        .cook-color {
+            background-color: #66bb6a;
+        }
+
+        .total-time {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Action buttons row */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .download-button {
+            background-color: #2196f3;
+            color: white;
+        }
+
+        .download-button:hover {
+            background-color: #1976d2;
+        }
+        
+        .telegram-button {
+            background-color: #039be5;
+            color: white;
+        }
+        
+        .telegram-button:hover {
+            background-color: #0277bd;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #323232;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        /* New styles for nutrition tracking button */
+        .track-nutrition-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .track-nutrition-button:hover {
+            background-color: #e64a19;
+        }
+
+        .section-heading {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        /* Nutrition modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 80%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Track Nutrition Button -->
+        <button id="trackNutritionButton" class="track-nutrition-button" style="margin-top: 10px; margin-bottom: 25px; font-size: 18px;">Track Today's Nutrition</button>
+
+        <!-- Dietary Options Section -->
+        <div class="section-heading" style="margin-top: 10px; font-size: 18px; font-weight: bold; color: #2c3e50;">Choose your ideal dietary option:</div>
+        <select id="goal" class="goal-selector">
+            <option value="low-carb">Low Carb</option>
+            <option value="high-protein">High Protein</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+        </select>
+
+        <div id="dropZone" class="drop-zone">
+            Drop food image here or click to upload
+        </div>
+
+        <div id="imagePreview" class="image-preview"></div>
+        
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Analyzing recipe...</p>
+        </div>
+
+        <div id="result" class="results-container"></div>
+        
+        <!-- Custom Prompt Section -->
+        <div id="customPromptSection" style="display: none; margin-top: 20px;">
+            <h3 style="margin-bottom: 10px; color: #2c3e50;">Ask More Questions</h3>
+            <div style="display: flex; margin-bottom: 10px;">
+                <input type="text" id="customPrompt" placeholder="Ask anything about this food..." 
+                       style="flex: 1; padding: 12px; border-radius: 4px; border: 1px solid #ddd; font-family: 'Nunito', sans-serif; font-size: 16px;">
+                <button id="askButton" style="margin-left: 10px; padding: 0 15px; background-color: #4caf50; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Ask</button>
+            </div>
+            <div id="customResponses" class="results-container" style="margin-top: 10px;"></div>
+        </div>
+        
+        <!-- Export button -->
+        <button id="exportButton" class="export-button" style="display: none;">Export Recipe</button>
+        
+        <!-- Action Buttons -->
+        <div id="actionButtons" class="action-buttons" style="display: none;">
+            <button id="downloadButton" class="action-button download-button">
+                Download Entire Recipe
+            </button>
+            <button id="telegramButton" class="action-button telegram-button">
+                Send Healthier Version
+            </button>
+        </div>
+    </div>
+    
+    <!-- Toast notification -->
+    <div id="toast" class="toast"></div>
+    
+    <!-- Nutrition Summary Modal -->
+    <div id="nutritionModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <h2>Today's Nutrition Summary</h2>
+            <div id="nutritionContent">Loading your nutrition data...</div>
+        </div>
+    </div>
+    
+    <input type="file" id="fileInput" accept="image/*" style="display: none">
+    
+    <!-- External libraries -->
+    <script src="popup.js"></script>
+</body>
+</html>

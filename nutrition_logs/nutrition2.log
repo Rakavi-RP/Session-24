@@ -1,0 +1,194 @@
+2025-04-20 14:05:08,217 - INFO - Starting Nutrition Tracking Bot with LLM log file: nutrition_logs/nutrition9.log
+2025-04-20 14:13:27,932 - INFO - === LLM CALL 1: FOOD EXTRACTION ===
+2025-04-20 14:13:27,932 - INFO - User message: i had a piece of apple
+2025-04-20 14:13:27,932 - INFO - Prompt sent to Gemini:
+
+    Extract the food items from this text: "i had a piece of apple"
+    
+    Format your response as a JSON list of food items with quantities if mentioned.
+    For example: [{"food": "eggs", "quantity": "2"}, {"food": "milk", "quantity": "1 glass"}]
+    
+    If no food items are found, return an empty list: []
+    
+2025-04-20 14:13:31,013 - INFO - Full Gemini response:
+```json
+[{"food": "apple", "quantity": "a piece of"}]
+```
+
+2025-04-20 14:13:31,014 - INFO - Extracted food items: [{'food': 'apple', 'quantity': 'a piece of'}]
+2025-04-20 14:13:47,944 - INFO - === LLM CALL 1: FOOD EXTRACTION ===
+2025-04-20 14:13:47,945 - INFO - User message: i had 50 grams of rice
+2025-04-20 14:13:47,945 - INFO - Prompt sent to Gemini:
+
+    Extract the food items from this text: "i had 50 grams of rice"
+    
+    Format your response as a JSON list of food items with quantities if mentioned.
+    For example: [{"food": "eggs", "quantity": "2"}, {"food": "milk", "quantity": "1 glass"}]
+    
+    If no food items are found, return an empty list: []
+    
+2025-04-20 14:13:48,680 - INFO - Full Gemini response:
+```json
+[{"food": "rice", "quantity": "50 grams"}]
+```
+
+2025-04-20 14:13:48,680 - INFO - Extracted food items: [{'food': 'rice', 'quantity': '50 grams'}]
+2025-04-20 14:14:15,206 - INFO - === LLM CALL 1: FOOD EXTRACTION ===
+2025-04-20 14:14:15,206 - INFO - User message: i had 500 grams of ice cream
+2025-04-20 14:14:15,206 - INFO - Prompt sent to Gemini:
+
+    Extract the food items from this text: "i had 500 grams of ice cream"
+    
+    Format your response as a JSON list of food items with quantities if mentioned.
+    For example: [{"food": "eggs", "quantity": "2"}, {"food": "milk", "quantity": "1 glass"}]
+    
+    If no food items are found, return an empty list: []
+    
+2025-04-20 14:14:15,902 - INFO - Full Gemini response:
+```json
+[{"food": "ice cream", "quantity": "500 grams"}]
+```
+
+2025-04-20 14:14:15,903 - INFO - Extracted food items: [{'food': 'ice cream', 'quantity': '500 grams'}]
+2025-04-20 14:14:26,116 - INFO - === LLM CALL 3: DAILY SUMMARY GENERATION ===
+2025-04-20 14:14:26,116 - INFO - Foods logged: ['2 small carrots', '2 chapathis, 50ml milk', 'a piece of apple', '50 grams rice', '500 grams ice cream']
+2025-04-20 14:14:26,116 - INFO - Total nutrition: {'calories': 1893.0, 'protein': 28.39, 'carbs': 293.995, 'fat': 69.105, 'fiber': 14.400000000000002, 'sodium': 1450.0, 'sugar': 185.10500000000002}
+2025-04-20 14:14:26,116 - INFO - Prompt sent to Gemini:
+
+    Based on this user's food intake for today:
+    2 small carrots, 2 chapathis, 50ml milk, a piece of apple, 50 grams rice, 500 grams ice cream
+    
+    Total Nutrition:
+    - Calories: 1893.0 kcal (Goal: 2000 kcal)
+    - Protein: 28.39g (Goal: 50g)
+    - Carbs: 293.995g (Goal: 275g)
+    - Fat: 69.105g (Goal: 70g)
+    - Fiber: 14.400000000000002g (Goal: 25g)
+    - Sugar: 185.10500000000002g (Goal: 50g)
+    - Sodium: 1450.0mg (Goal: 1500mg)
+    
+    Create a detailed nutrition assessment with these sections:
+    
+    1. Significant Nutrient Discrepancies:
+    - For each nutrient that exceeds or falls below goals by more than 10%, calculate the exact percentage difference
+    - Format as: "Nutrient: You consumed Xg, which is Y% over/under your goal of Zg"
+    
+    2. Positive Nutrition Choices:
+    - Identify any healthy foods the user consumed
+    - Acknowledge good nutrition choices if present
+    
+    3. Recommendations for Tomorrow:
+    - Provide 3-4 specific, actionable recommendations
+    - Include specific food alternatives
+    - Suggest portion control strategies if calorie goal was exceeded
+    - Recommend specific foods to address nutrient deficiencies
+    
+    Make all recommendations specific, personalized to the foods they actually ate, and actionable.
+    
+2025-04-20 14:14:30,947 - INFO - Full Gemini response:
+## Nutrition Assessment
+
+Based on the provided food intake data, here's a detailed nutrition assessment:
+
+**1. Significant Nutrient Discrepancies:**
+
+* **Protein:** You consumed 28.39g, which is 43.58% under your goal of 50g.
+* **Fiber:** You consumed 14.4g, which is 42.4% under your goal of 25g.
+* **Sugar:** You consumed 185.1g, which is 270.21% over your goal of 50g.
+
+
+**2. Positive Nutrition Choices:**
+
+You made some good choices by including carrots, chapathis (providing some fiber), milk (calcium source), and an apple (vitamins and fiber).  The small portions of carrots, chapathis, milk and apple show some attempt at balanced eating.
+
+**3. Recommendations for Tomorrow:**
+
+The main areas for improvement are protein, fiber intake, and drastically reducing sugar consumption. The 500g of ice cream is the primary culprit for the excessive sugar and fat intake and likely contributed significantly to the calorie surplus.
+
+Here are some specific, actionable recommendations for tomorrow:
+
+
+1. **Increase Protein Intake:**  Replace the ice cream entirely. To increase your protein intake, consider adding a serving of  lean protein like:
+    * 100g of grilled chicken breast (approx. 30g protein)
+    * 1 cup of lentils (approx. 18g protein)
+    * 2 eggs (approx. 12g protein)
+    * A small can of tuna (approx 20g protein)
+    These additions will significantly boost your protein closer to your goal.
+
+2. **Boost Fiber Intake:** Include more high-fiber foods to reach your fiber goal.  Consider adding:
+    * 1/2 cup of cooked oatmeal (approx. 4g fiber)
+    * A larger portion of carrots (at least 2 medium carrots)
+    * A handful of almonds (approx. 4g fiber)
+    *  Increase the number of chapatis to 3-4, aiming for whole wheat options for added fiber.
+
+3. **Drastically Reduce Sugar:**  Eliminate the ice cream.  Instead, opt for healthier, lower-sugar alternatives if you crave a sweet treat. Consider:
+    * A small bowl of berries (naturally sweet and high in antioxidants)
+    * A piece of fruit (apple, banana, orange - choose one).
+
+4. **Portion Control and Calorie Awareness:** You exceeded your calorie goal significantly due to the large portion of ice cream.  Be mindful of portion sizes, especially with high-calorie foods like ice cream.  Use measuring cups and scales to ensure accurate portion control, particularly with rice and chapatis.  Aim for smaller portions of these carbs to better manage your overall calorie intake.  Try tracking your meals and snacks using a food tracking app to help monitor your caloric intake.
+
+By implementing these recommendations, you can significantly improve your nutritional balance and work towards meeting your daily goals. Remember, gradual changes are more sustainable than drastic ones.
+
+2025-04-20 14:14:30,947 - INFO - Final formatted summary for user:
+🍽️ *YOUR DAILY NUTRITION SUMMARY* 🍽️
+
+*Foods logged today:*
+1. 2 small carrots
+2. 2 chapathis, 50ml milk
+3. a piece of apple
+4. 50 grams rice
+5. 500 grams ice cream
+
+*Nutrition Totals:*
+• Calories: 1893 kcal (95% of goal)
+• Protein: 28.4g (57% of goal)
+• Carbs: 294.0g (107% of goal)
+• Fat: 69.1g (99% of goal)
+• Fiber: 14.4g (58% of goal)
+• Sugar: 185.1g (370% of goal)
+• Sodium: 1450mg (97% of goal)
+
+*Analysis & Recommendations:*
+## Nutrition Assessment
+
+Based on the provided food intake data, here's a detailed nutrition assessment:
+
+**1. Significant Nutrient Discrepancies:**
+
+* **Protein:** You consumed 28.39g, which is 43.58% under your goal of 50g.
+* **Fiber:** You consumed 14.4g, which is 42.4% under your goal of 25g.
+* **Sugar:** You consumed 185.1g, which is 270.21% over your goal of 50g.
+
+
+**2. Positive Nutrition Choices:**
+
+You made some good choices by including carrots, chapathis (providing some fiber), milk (calcium source), and an apple (vitamins and fiber).  The small portions of carrots, chapathis, milk and apple show some attempt at balanced eating.
+
+**3. Recommendations for Tomorrow:**
+
+The main areas for improvement are protein, fiber intake, and drastically reducing sugar consumption. The 500g of ice cream is the primary culprit for the excessive sugar and fat intake and likely contributed significantly to the calorie surplus.
+
+Here are some specific, actionable recommendations for tomorrow:
+
+
+1. **Increase Protein Intake:**  Replace the ice cream entirely. To increase your protein intake, consider adding a serving of  lean protein like:
+    * 100g of grilled chicken breast (approx. 30g protein)
+    * 1 cup of lentils (approx. 18g protein)
+    * 2 eggs (approx. 12g protein)
+    * A small can of tuna (approx 20g protein)
+    These additions will significantly boost your protein closer to your goal.
+
+2. **Boost Fiber Intake:** Include more high-fiber foods to reach your fiber goal.  Consider adding:
+    * 1/2 cup of cooked oatmeal (approx. 4g fiber)
+    * A larger portion of carrots (at least 2 medium carrots)
+    * A handful of almonds (approx. 4g fiber)
+    *  Increase the number of chapatis to 3-4, aiming for whole wheat options for added fiber.
+
+3. **Drastically Reduce Sugar:**  Eliminate the ice cream.  Instead, opt for healthier, lower-sugar alternatives if you crave a sweet treat. Consider:
+    * A small bowl of berries (naturally sweet and high in antioxidants)
+    * A piece of fruit (apple, banana, orange - choose one).
+
+4. **Portion Control and Calorie Awareness:** You exceeded your calorie goal significantly due to the large portion of ice cream.  Be mindful of portion sizes, especially with high-calorie foods like ice cream.  Use measuring cups and scales to ensure accurate portion control, particularly with rice and chapatis.  Aim for smaller portions of these carbs to better manage your overall calorie intake.  Try tracking your meals and snacks using a food tracking app to help monitor your caloric intake.
+
+By implementing these recommendations, you can significantly improve your nutritional balance and work towards meeting your daily goals. Remember, gradual changes are more sustainable than drastic ones.
+

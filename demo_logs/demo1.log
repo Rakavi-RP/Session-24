@@ -1,0 +1,415 @@
+2025-04-20 14:05:03,488 - INFO - Starting Recipe Analyzer API with log file: demo_logs/demo4.log
+2025-04-20 14:06:18,183 - INFO - === New Recipe Analysis Started ===
+2025-04-20 14:06:18,190 - INFO - Query goal: 'vegan', Form goal: 'None', Effective goal: 'vegan'
+2025-04-20 14:06:18,191 - INFO - Valid goals: ['vegan', 'vegetarian', 'high-protein', 'low-carb']
+2025-04-20 14:06:18,191 - INFO - Goal characters: [118, 101, 103, 97, 110]
+2025-04-20 14:06:18,191 - INFO - Comparing 'vegan' == 'vegan': True
+2025-04-20 14:06:18,191 - INFO - Comparing 'vegan' == 'vegetarian': False
+2025-04-20 14:06:18,191 - INFO - Comparing 'vegan' == 'high-protein': False
+2025-04-20 14:06:18,192 - INFO - Comparing 'vegan' == 'low-carb': False
+2025-04-20 14:06:18,197 - INFO - Using valid dietary goal: 'vegan'
+2025-04-20 14:06:18,197 - INFO - Final goal being used: 'vegan'
+2025-04-20 14:06:18,226 - INFO - Sending image to Hugging Face vision API...
+2025-04-20 14:06:20,877 - INFO - Vision Analysis from Hugging Face: there are three scoops of ice cream in a cone
+2025-04-20 14:06:20,881 - INFO - Sending recipe analysis prompt to Gemini
+2025-04-20 14:06:26,312 - INFO - ==== FULL RECIPE ANALYSIS RESPONSE FROM GEMINI ====
+2025-04-20 14:06:26,313 - INFO - ## Analysis of Three Scoops of Ice Cream in a Cone
+
+### 1. Main Ingredients:
+
+* Ice cream: This is the primary ingredient, and its specific composition (e.g., vanilla, chocolate, strawberry) will significantly affect the nutritional profile.  Common ingredients in ice cream include milk, cream, sugar, eggs, and flavorings.
+* Cone: Typically made from a wafer-like material composed primarily of flour, sugar, and fat (often from vegetable oil).
+
+
+### 2. Nutritional Information (Estimates):
+
+The nutritional information is highly dependent on the type and size of ice cream scoops and cone.  These are rough estimates for three average scoops (approx. 1.5 cups) of ice cream in a standard waffle cone:
+
+* **Calories:** 600-900 calories (a single scoop can range from 200-300 calories).
+* **Protein:** 10-15 grams (mostly from the milk and cream in the ice cream).
+* **Carbohydrates:** 100-150 grams (primarily from the sugar in the ice cream and the cone).
+* **Fat:** 30-50 grams (largely from the cream and fat in the ice cream and cone).
+
+
+These values are approximations and can vary widely depending on:
+
+* **Type of Ice Cream:**  Higher fat ice creams (e.g., ice cream with heavy cream) will have more calories and fat.  Ice creams with added sugars will have more carbohydrates.  Sorbet will have significantly lower fat and calories.
+* **Scoop Size:** Larger scoops will result in higher calorie counts.
+* **Cone Size and Type:**  A larger cone or one made with richer ingredients will add more calories and fat.
+
+
+### 3. Healthier Alternatives:
+
+* **Ice Cream:**
+    * **Reduced-fat ice cream:** Opt for lower-fat versions to reduce calorie and fat intake.
+    * **Greek yogurt-based ice cream:** This can provide a boost in protein and reduce fat compared to traditional ice cream.
+    * **Sorbet or gelato:** These have fewer calories and fat than traditional ice cream.  Be mindful of added sugar content.
+    * **Smaller portions:**  Instead of three scoops, consider having one or two smaller scoops.
+* **Cone:**
+    * **Sugar cone alternatives:** Choose a smaller cone or opt for a lower-sugar alternative if available.  A sugar-free cone is a less processed option, but its availability is quite limited.
+    * **Fruit-based cone:** Consider a fruit-based cone like a banana split (as long as it is made with fresh fruit and no added sugar).
+    * **No cone:** Skip the cone altogether to reduce calories and carbohydrates.
+
+
+It is crucial to remember that these are suggestions, and individual nutritional needs vary.  Always check the nutritional labels of specific products for accurate information.
+
+2025-04-20 14:06:26,315 - INFO - Recipe Analysis received from Gemini
+2025-04-20 14:06:26,315 - INFO - Preparing modification prompt with goal: 'vegan'
+2025-04-20 14:06:26,318 - INFO - Using VEGAN prompt template
+2025-04-20 14:06:26,318 - INFO - Sending vegan modification prompt to Gemini
+2025-04-20 14:06:31,536 - INFO - ==== FULL MODIFICATION RESPONSE FROM GEMINI ====
+2025-04-20 14:06:31,538 - INFO - ## Vegan "Ice Cream" Cones: A Homemade Delight
+
+This recipe creates three scoops of delicious, completely from-scratch vegan "ice cream" served in homemade cones.
+
+
+## 1. Alternative Ingredients:
+
+**For the Coconut "Ice Cream":**
+
+* 2 cups full-fat coconut milk (refrigerated overnight)
+* 1/2 cup raw cashews (soaked in hot water for at least 30 minutes)
+* 1/4 cup maple syrup (adjust to taste)
+* 1 teaspoon vanilla extract
+* Pinch of sea salt
+
+**For the Gluten-Free Cones:**
+
+* 1/2 cup gluten-free oat flour
+* 1/4 cup brown rice flour
+* 2 tablespoons coconut oil, melted
+* 2 tablespoons maple syrup
+* 1 tablespoon water (more if needed)
+
+
+## 2. Cooking Instructions:
+
+**A. Making the Coconut "Ice Cream":**
+
+1. Drain the soaked cashews and rinse well.
+2. In a high-speed blender, combine the refrigerated coconut milk, cashews, maple syrup, vanilla extract, and salt.
+3. Blend until completely smooth and creamy. This may take several minutes. Scrape down the sides of the blender as needed.
+4. Pour the mixture into a freezer-safe container.  
+5. Freeze for at least 4 hours, or preferably overnight, stirring every hour for the first three hours to prevent large ice crystals from forming.
+
+**B. Making the Gluten-Free Cones:**
+
+1. Preheat oven to 350°F (175°C).
+2. In a medium bowl, whisk together the oat flour and brown rice flour.
+3. Add the melted coconut oil and maple syrup. Mix until a dough forms.
+4. Add water, one tablespoon at a time, until the dough is just moist enough to hold its shape.  It should be slightly sticky.
+5. Roll the dough into small balls (about 1 inch in diameter).
+6. Place each ball on a piece of parchment paper.  Using a small, round object (like the bottom of a measuring cup), flatten each ball into a thin circle.
+7. Carefully roll the parchment paper with the dough on it around a small cone mold or a rolled-up piece of parchment. 
+8. Bake for 10-12 minutes, or until lightly golden brown.
+9. Immediately remove the cones from the mold and let them cool completely.
+
+
+## 3. Health Benefits:
+
+This homemade vegan "ice cream" and cone recipe offers several advantages over store-bought alternatives:
+
+* **Coconut Milk:** Provides healthy fats (medium-chain triglycerides) that are easily digested and utilized for energy.  It's also a good source of electrolytes.
+* **Cashews:**  Excellent source of plant-based protein, healthy fats, and minerals like magnesium.
+* **Maple Syrup:** Offers a natural sweetness with trace minerals, unlike refined sugars found in most commercial ice creams.
+* **Oat Flour & Brown Rice Flour:**  Provide complex carbohydrates and fiber, making the cones a healthier choice than those made with refined white flour.
+* **Homemade Control:** You completely control the ingredients, avoiding artificial flavors, colors, preservatives, and excessive added sugars common in store-bought products.  This results in a significantly healthier, less processed dessert.
+
+
+## 4. Cooking Timeline
+
+* Preparation: 25 minutes (including cashew soaking time)
+* Cooking: 12 minutes
+* Total: 37 minutes
+
+
+2025-04-20 14:06:31,540 - INFO - Modified Recipe received from Gemini
+2025-04-20 14:06:31,542 - INFO - Sending flavor enhancement prompt to Gemini
+2025-04-20 14:06:36,358 - INFO - ==== FULL FLAVOR ENHANCEMENT RESPONSE FROM GEMINI ====
+2025-04-20 14:06:36,358 - INFO - ## Vegan Ice Cream Cone Flavor Enhancements
+
+This focuses on enhancing a three-scoop vegan ice cream cone, assuming the ice cream itself is a relatively plain base (e.g., vanilla, chocolate, strawberry).
+
+
+## 1. Spice & Herb Recommendations
+
+* **Cardamom:** Ground cardamom adds warmth and a subtly sweet aroma, particularly complementing vanilla or coconut ice cream.  A light dusting or a cardamom-infused syrup would be ideal.
+* **Cinnamon:**  Classic pairing with many ice cream flavors.  A sprinkle of Ceylon cinnamon or a cinnamon sugar mix adds texture and spice.
+* **Star Anise:**  A whole star anise steeped in plant-based milk and reduced into a syrup creates a sophisticated, slightly licorice-like flavor, great with coffee or chocolate ice cream.
+* **Lavender:**  Culinary lavender, finely chopped and sprinkled sparingly, adds a floral and slightly sweet note, best suited for vanilla or berry ice creams.  Be mindful not to overpower the ice cream.
+* **Mint:** Fresh mint leaves, finely chopped, offer a refreshing contrast, especially with chocolate or mint chip ice cream. A mint-infused chocolate sauce would also be excellent.
+
+
+## 2. Sauce or Dressing Ideas
+
+* **Salted Caramel Sauce (Vegan):**  Use a combination of coconut sugar, coconut cream, and sea salt for a rich, decadent sauce.
+* **Berry Coulis:** Blend fresh or frozen berries (strawberries, raspberries, blueberries) with a touch of agave nectar or maple syrup for a vibrant and fruity sauce.
+* **Chocolate Sauce (Vegan):**  Melt vegan dark chocolate with a touch of plant-based milk and a pinch of sea salt for a classic pairing.
+* **Peanut Butter Sauce:** Blend peanut butter, maple syrup, and plant-based milk for a nutty and sweet sauce.  Add a pinch of chili powder for a spicy kick.
+* **Coconut Cream:**  Lightly sweetened coconut cream offers a rich and creamy topping, especially for tropical fruit-flavored ice creams.
+
+
+## 3. Presentation Tips
+
+* **Color Coordination:** Choose ice cream scoops in complementary colors.  For example, a deep chocolate, a pale vanilla, and a bright strawberry.
+* **Height and Shape:**  Create a visually appealing height by slightly mounding the ice cream scoops.  Consider using a small ice cream scoop for a neat, uniform look.
+* **Garnish Strategically:**  Place the sauces or dressings artfully around the ice cream scoops, rather than simply pouring them over the top. Consider using a piping bag for more refined designs.
+* **Edible Flowers and Fruits:** Garnish with fresh edible flowers (lavender, pansies) or small pieces of fruit (berries, sliced kiwi) for a touch of elegance.
+* **Waffle Cone Upgrade:** Use a waffle cone instead of a regular cone for added texture and visual appeal.  A lightly toasted cone further enhances its aesthetic.
+* **Serving Dish:** Serve the ice cream cone in a visually appealing bowl or on a plate, rather than directly on a table. This adds a touch of sophistication.
+
+By combining thoughtfully chosen spices, sauces, and careful presentation, you can elevate a simple three-scoop vegan ice cream cone into a visually stunning and delicious dessert.
+
+2025-04-20 14:06:36,364 - INFO - Flavor Enhancement received from Gemini
+2025-04-20 14:06:36,364 - INFO - Returning response with dietary_type: 'vegan'
+2025-04-20 14:08:49,155 - INFO - === Custom Prompt Request ===
+2025-04-20 14:08:49,156 - INFO - Prompt: is this vegan ice cream low in sugar ? or should i prefer alternatives
+2025-04-20 14:08:49,156 - INFO - Food: there are three scoops of ice cream in a cone
+2025-04-20 14:08:49,156 - INFO - Diet Type: vegan
+2025-04-20 14:08:52,314 - INFO - Custom prompt full response:
+2025-04-20 14:08:52,315 - INFO - The provided vegan ice cream recipe uses maple syrup as its sweetener. While maple syrup is a natural sweetener and contains some micronutrients, it's still a sugar.  The recipe doesn't specify the exact amount of maple syrup, only stating "1/4 cup (adjust to taste)."  This means the sugar content can vary depending on individual preference.  A 1/4 cup of maple syrup contains a significant amount of sugar, though less than refined white sugar would provide for the same level of sweetness.
+
+Therefore, we cannot definitively say this vegan ice cream is "low in sugar."  Whether it's a suitable choice depends on your individual sugar tolerance and dietary needs.
+
+**Should you prefer alternatives?**  That depends on your priorities:
+
+* **If minimizing sugar is paramount:** You should explore alternatives.  Many sugar-free or low-sugar ice cream options exist, though they often rely on artificial sweeteners.  Consider making your own ice cream with alternative sweeteners like stevia or monk fruit, keeping in mind these have their own considerations regarding taste and potential health effects.  Fruit sorbets are also a good option, but check labels to ensure low added sugars.
+
+* **If you're looking for a naturally sweet, lower-sugar, and vegan option:** You could reduce the maple syrup significantly in the recipe. Experiment with the amount to find your ideal sweetness level.  Adding more vanilla extract can sometimes enhance sweetness perception without adding more sugar.
+
+* **If you prioritize ease and convenience:** Store-bought vegan ice creams are readily available.  However, carefully check the nutritional information for sugar content. Different brands will have vastly different sugar levels.
+
+In summary, the provided vegan ice cream recipe isn't inherently low in sugar, even though it uses maple syrup which is healthier than refined sugar.  Whether you should prefer alternatives depends on your individual sugar intake goals and preferences. Always check labels carefully to compare sugar content across different options.
+
+2025-04-20 14:09:18,783 - INFO - === Sending recipe to Telegram ===
+2025-04-20 14:09:23,266 - INFO - ==== FULL TELEGRAM SUMMARY ====
+2025-04-20 14:09:23,269 - INFO - 🍽️ HEALTHY RECIPE MODIFICATION
+
+Original Dish: Three Scoops of Ice Cream in a Cone
+Modified Type: Vegan
+
+📋 MODIFIED INGREDIENTS
+Coconut "Ice Cream": 2 cups full-fat coconut milk (refrigerated overnight), 1/2 cup raw cashews (soaked in hot water for at least 30 minutes), 1/4 cup maple syrup, 1 teaspoon vanilla extract, pinch of sea salt.
+Gluten-Free Cones: 1/2 cup gluten-free oat flour, 1/4 cup brown rice flour, 2 tablespoons coconut oil, melted, 2 tablespoons maple syrup, 1 tablespoon water (more if needed).
+
+👩‍🍳 COOKING INSTRUCTIONS
+
+**A. Making the Coconut "Ice Cream":**
+
+1. Drain the soaked cashews and rinse well.
+2. In a high-speed blender, combine the refrigerated coconut milk, cashews, maple syrup, vanilla extract, and salt.
+3. Blend until completely smooth and creamy. This may take several minutes. Scrape down the sides of the blender as needed.
+4. Pour the mixture into a freezer-safe container.  
+5. Freeze for at least 4 hours, or preferably overnight, stirring every hour for the first three hours to prevent large ice crystals from forming.
+
+**B. Making the Gluten-Free Cones:**
+
+1. Preheat oven to 350°F (175°C).
+2. In a medium bowl, whisk together the oat flour and brown rice flour.
+3. Add the melted coconut oil and maple syrup. Mix until a dough forms.
+4. Add water, one tablespoon at a time, until the dough is just moist enough to hold its shape.  It should be slightly sticky.
+5. Roll the dough into small balls (about 1 inch in diameter).
+6. Place each ball on a piece of parchment paper.  Using a small, round object (like the bottom of a measuring cup), flatten each ball into a thin circle.
+7. Carefully roll the parchment paper with the dough on it around a small cone mold or a rolled-up piece of parchment. 
+8. Bake for 10-12 minutes, or until lightly golden brown.
+9. Immediately remove the cones from the mold and let them cool completely.
+
+
+💪 HEALTH BENEFITS
+This recipe offers a healthier alternative by using coconut milk for healthy fats and electrolytes, cashews for plant-based protein and minerals, maple syrup for natural sweetness, and gluten-free flours for fiber.  Making it at home allows for control over ingredients, avoiding artificial additives and excessive sugar.
+
+
+⏲️ COOKING TIME
+Preparation: 25 minutes
+Cooking: 12 minutes
+Total: 37 minutes
+
+📊 NUTRITIONAL HIGHLIGHTS
+The nutritional information varies greatly depending on portion sizes and specific ingredients used, but this recipe offers a significantly lower fat and calorie count compared to traditional ice cream, while providing healthy fats, plant-based protein, and fiber.  It is also naturally sweetened with maple syrup, avoiding refined sugars.
+
+2025-04-20 14:09:25,248 - INFO - Successfully sent recipe summary to Telegram chat 604398528
+2025-04-20 14:10:03,140 - INFO - === LLM CALL: CHROME EXTENSION NUTRITION SUMMARY ===
+2025-04-20 14:10:03,140 - INFO - Foods logged: ['2 small carrots', '2 chapathis, 50ml milk']
+2025-04-20 14:10:03,140 - INFO - Total nutrition: {'calories': 288.0, 'protein': 9.74, 'carbs': 59.36, 'fat': 2.48, 'fiber': 9.8, 'sodium': 250.0, 'sugar': 10.5}
+2025-04-20 14:10:03,141 - INFO - Prompt sent to Gemini for Chrome extension:
+
+        Based on this user's food intake for today:
+        2 small carrots, 2 chapathis, 50ml milk
+        
+        Total Nutrition:
+        - Calories: 288.0 kcal (Goal: 2000 kcal)
+        - Protein: 9.74g (Goal: 50g)
+        - Carbs: 59.36g (Goal: 275g)
+        - Fat: 2.48g (Goal: 70g)
+        - Fiber: 9.8g (Goal: 25g)
+        - Sugar: 10.5g (Goal: 50g)
+        - Sodium: 250.0mg (Goal: 1500mg)
+        
+        Create a detailed nutrition assessment with these sections:
+        
+        Significant Nutrient Discrepancies:
+        For each nutrient (including sugar) that exceeds or falls below goals by more than 10%, calculate the exact percentage difference.
+        Format each nutrient on a new line WITHOUT using markdown, bullets, or asterisks.
+        ALWAYS include analysis of sugar content, especially if it's close to or exceeds the daily goal.
+        
+        Recommendations:
+        Provide 3-4 specific, actionable recommendations based on the nutrients that are most out of balance.
+        Include specific food alternatives.
+        If sugar is high, ALWAYS provide specific recommendations to reduce sugar intake.
+        Format each recommendation as a numbered list (1., 2., 3.) WITHOUT using markdown.
+        
+        The recommendations must be straightforward, plain text only (NO markdown, NO bold, NO asterisks).
+        Keep the entire response under 600 characters for display in the Chrome extension.
+        
+2025-04-20 14:10:04,271 - INFO - Full Gemini response for Chrome extension:
+Significant Nutrient Discrepancies:
+Protein: 80.7% below goal
+Fat: 96.6% below goal
+Carbs: 78.5% below goal
+
+Recommendations:
+1. Include fatty fish (salmon, tuna) for protein and healthy fats.
+2. Add more whole grains (brown rice, quinoa) for carbs and fiber.
+3. Increase dairy intake (yogurt, cheese) for protein and fat.
+4. Choose fruit over sugary snacks to meet sugar goals.
+
+2025-04-20 14:12:51,400 - INFO - === LLM CALL: CHROME EXTENSION NUTRITION SUMMARY ===
+2025-04-20 14:12:51,401 - INFO - Foods logged: ['2 small carrots', '2 chapathis, 50ml milk']
+2025-04-20 14:12:51,401 - INFO - Total nutrition: {'calories': 288.0, 'protein': 9.74, 'carbs': 59.36, 'fat': 2.48, 'fiber': 9.8, 'sodium': 250.0, 'sugar': 10.5}
+2025-04-20 14:12:51,403 - INFO - Prompt sent to Gemini for Chrome extension:
+
+        Based on this user's food intake for today:
+        2 small carrots, 2 chapathis, 50ml milk
+        
+        Total Nutrition:
+        - Calories: 288.0 kcal (Goal: 2000 kcal)
+        - Protein: 9.74g (Goal: 50g)
+        - Carbs: 59.36g (Goal: 275g)
+        - Fat: 2.48g (Goal: 70g)
+        - Fiber: 9.8g (Goal: 25g)
+        - Sugar: 10.5g (Goal: 50g)
+        - Sodium: 250.0mg (Goal: 1500mg)
+        
+        Create a detailed nutrition assessment with these sections:
+        
+        Significant Nutrient Discrepancies:
+        For each nutrient (including sugar) that exceeds or falls below goals by more than 10%, calculate the exact percentage difference.
+        Format each nutrient on a new line WITHOUT using markdown, bullets, or asterisks.
+        ALWAYS include analysis of sugar content, especially if it's close to or exceeds the daily goal.
+        
+        Recommendations:
+        Provide 3-4 specific, actionable recommendations based on the nutrients that are most out of balance.
+        Include specific food alternatives.
+        If sugar is high, ALWAYS provide specific recommendations to reduce sugar intake.
+        Format each recommendation as a numbered list (1., 2., 3.) WITHOUT using markdown.
+        
+        The recommendations must be straightforward, plain text only (NO markdown, NO bold, NO asterisks).
+        Keep the entire response under 600 characters for display in the Chrome extension.
+        
+2025-04-20 14:12:53,042 - INFO - Full Gemini response for Chrome extension:
+Significant Nutrient Discrepancies:
+
+Protein: 80.7% below goal
+Fat: 96.6% below goal
+Carbs: 78.5% below goal
+Sugar: 50% below goal
+
+Recommendations:
+
+1. Add healthy fats: Include 2 tablespoons of nuts or seeds.
+2. Increase protein: Add 2 eggs or 100g of lean meat/fish.
+3. Increase carbohydrate intake: Add a serving of whole grain rice or quinoa.
+4. Monitor added sugar:  Avoid sugary drinks.
+
+2025-04-20 14:13:57,349 - INFO - === LLM CALL: CHROME EXTENSION NUTRITION SUMMARY ===
+2025-04-20 14:13:57,365 - INFO - Foods logged: ['2 small carrots', '2 chapathis, 50ml milk', 'a piece of apple', '50 grams rice']
+2025-04-20 14:13:57,367 - INFO - Total nutrition: {'calories': 478.0, 'protein': 13.64, 'carbs': 97.595, 'fat': 5.755, 'fiber': 11.900000000000002, 'sodium': 470.0, 'sugar': 35.105000000000004}
+2025-04-20 14:13:57,367 - INFO - Prompt sent to Gemini for Chrome extension:
+
+        Based on this user's food intake for today:
+        2 small carrots, 2 chapathis, 50ml milk, a piece of apple, 50 grams rice
+        
+        Total Nutrition:
+        - Calories: 478.0 kcal (Goal: 2000 kcal)
+        - Protein: 13.64g (Goal: 50g)
+        - Carbs: 97.595g (Goal: 275g)
+        - Fat: 5.755g (Goal: 70g)
+        - Fiber: 11.900000000000002g (Goal: 25g)
+        - Sugar: 35.105000000000004g (Goal: 50g)
+        - Sodium: 470.0mg (Goal: 1500mg)
+        
+        Create a detailed nutrition assessment with these sections:
+        
+        Significant Nutrient Discrepancies:
+        For each nutrient (including sugar) that exceeds or falls below goals by more than 10%, calculate the exact percentage difference.
+        Format each nutrient on a new line WITHOUT using markdown, bullets, or asterisks.
+        ALWAYS include analysis of sugar content, especially if it's close to or exceeds the daily goal.
+        
+        Recommendations:
+        Provide 3-4 specific, actionable recommendations based on the nutrients that are most out of balance.
+        Include specific food alternatives.
+        If sugar is high, ALWAYS provide specific recommendations to reduce sugar intake.
+        Format each recommendation as a numbered list (1., 2., 3.) WITHOUT using markdown.
+        
+        The recommendations must be straightforward, plain text only (NO markdown, NO bold, NO asterisks).
+        Keep the entire response under 600 characters for display in the Chrome extension.
+        
+2025-04-20 14:13:58,581 - INFO - Full Gemini response for Chrome extension:
+Significant Nutrient Discrepancies:
+Protein: -72.68%
+Fat: -84.93%
+Carbs: -64.69%
+Fiber: -52.4%
+Sugar: -29.8%
+
+Recommendations:
+1. Increase protein intake with lean meats or lentils.
+2. Add healthy fats like avocados or nuts.
+3. Include more whole grains and vegetables for carbs and fiber.
+4. Reduce sugar by choosing fruits over fruit juices and limiting sweets.
+
+2025-04-20 14:14:51,488 - INFO - === LLM CALL: CHROME EXTENSION NUTRITION SUMMARY ===
+2025-04-20 14:14:51,488 - INFO - Foods logged: ['2 small carrots', '2 chapathis, 50ml milk', 'a piece of apple', '50 grams rice', '500 grams ice cream']
+2025-04-20 14:14:51,489 - INFO - Total nutrition: {'calories': 1893.0, 'protein': 28.39, 'carbs': 293.995, 'fat': 69.105, 'fiber': 14.400000000000002, 'sodium': 1450.0, 'sugar': 185.10500000000002}
+2025-04-20 14:14:51,491 - INFO - Prompt sent to Gemini for Chrome extension:
+
+        Based on this user's food intake for today:
+        2 small carrots, 2 chapathis, 50ml milk, a piece of apple, 50 grams rice, 500 grams ice cream
+        
+        Total Nutrition:
+        - Calories: 1893.0 kcal (Goal: 2000 kcal)
+        - Protein: 28.39g (Goal: 50g)
+        - Carbs: 293.995g (Goal: 275g)
+        - Fat: 69.105g (Goal: 70g)
+        - Fiber: 14.400000000000002g (Goal: 25g)
+        - Sugar: 185.10500000000002g (Goal: 50g)
+        - Sodium: 1450.0mg (Goal: 1500mg)
+        
+        Create a detailed nutrition assessment with these sections:
+        
+        Significant Nutrient Discrepancies:
+        For each nutrient (including sugar) that exceeds or falls below goals by more than 10%, calculate the exact percentage difference.
+        Format each nutrient on a new line WITHOUT using markdown, bullets, or asterisks.
+        ALWAYS include analysis of sugar content, especially if it's close to or exceeds the daily goal.
+        
+        Recommendations:
+        Provide 3-4 specific, actionable recommendations based on the nutrients that are most out of balance.
+        Include specific food alternatives.
+        If sugar is high, ALWAYS provide specific recommendations to reduce sugar intake.
+        Format each recommendation as a numbered list (1., 2., 3.) WITHOUT using markdown.
+        
+        The recommendations must be straightforward, plain text only (NO markdown, NO bold, NO asterisks).
+        Keep the entire response under 600 characters for display in the Chrome extension.
+        
+2025-04-20 14:14:52,524 - INFO - Full Gemini response for Chrome extension:
+Significant Nutrient Discrepancies:
+Protein: -43.22%
+Fiber: -42.4%
+Sugar: 270.21%
+
+Recommendations:
+1. Increase protein intake with lean meats or lentils.
+2. Add more high-fiber foods like broccoli or oats.
+3. Significantly reduce ice cream consumption; replace with fruit or yogurt.
+4. Choose sugar-free alternatives for snacks and desserts.
+

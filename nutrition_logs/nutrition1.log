@@ -1,0 +1,181 @@
+2025-04-20 12:46:46,771 - INFO - Starting Nutrition Tracking Bot with LLM log file: nutrition_logs/nutrition3.log
+2025-04-20 12:49:37,666 - INFO - === LLM CALL 1: FOOD EXTRACTION ===
+2025-04-20 12:49:37,667 - INFO - User message: i had 2 small carrots
+2025-04-20 12:49:37,667 - INFO - Prompt sent to Gemini:
+
+    Extract the food items from this text: "i had 2 small carrots"
+    
+    Format your response as a JSON list of food items with quantities if mentioned.
+    For example: [{"food": "eggs", "quantity": "2"}, {"food": "milk", "quantity": "1 glass"}]
+    
+    If no food items are found, return an empty list: []
+    
+2025-04-20 12:49:38,726 - INFO - Full Gemini response:
+```json
+[{"food": "carrots", "quantity": "2 small"}]
+```
+
+2025-04-20 12:49:38,729 - INFO - Extracted food items: [{'food': 'carrots', 'quantity': '2 small'}]
+2025-04-20 12:50:40,233 - INFO - === LLM CALL 1: FOOD EXTRACTION ===
+2025-04-20 12:50:40,234 - INFO - User message: i had 2 chapathis for break fast along with 50ml milk
+2025-04-20 12:50:40,234 - INFO - Prompt sent to Gemini:
+
+    Extract the food items from this text: "i had 2 chapathis for break fast along with 50ml milk"
+    
+    Format your response as a JSON list of food items with quantities if mentioned.
+    For example: [{"food": "eggs", "quantity": "2"}, {"food": "milk", "quantity": "1 glass"}]
+    
+    If no food items are found, return an empty list: []
+    
+2025-04-20 12:50:40,944 - INFO - Full Gemini response:
+```json
+[{"food": "chapathis", "quantity": "2"}, {"food": "milk", "quantity": "50ml"}]
+```
+
+2025-04-20 12:50:40,944 - INFO - Extracted food items: [{'food': 'chapathis', 'quantity': '2'}, {'food': 'milk', 'quantity': '50ml'}]
+2025-04-20 12:50:42,303 - INFO - === LLM CALL 2: NUTRITION ESTIMATION ===
+2025-04-20 12:50:42,303 - INFO - Food item: {'food': 'chapathis', 'quantity': '2'}
+2025-04-20 12:50:42,303 - INFO - Prompt sent to Gemini:
+
+    Estimate the nutritional content for: 2 chapathis
+    
+    Provide a JSON object with these nutritional values:
+    - calories (kcal)
+    - protein (g)
+    - carbs (g)
+    - fat (g)
+    - fiber (g)
+    - sodium (mg)
+    - sugar (g)
+    
+    Format: {"calories": 240, "protein": 12, "carbs": 30, "fat": 8, "fiber": 3, "sodium": 400, "sugar": 5}
+    
+    Be as accurate as possible with your estimation.
+    
+2025-04-20 12:50:43,214 - INFO - Full Gemini response:
+```json
+{
+  "calories": 200,
+  "protein": 8,
+  "carbs": 40,
+  "fat": 2,
+  "fiber": 4,
+  "sodium": 100, 
+  "sugar": 1
+}
+```
+
+2025-04-20 12:50:43,215 - INFO - Final nutrition estimation: {'calories': 200, 'protein': 8, 'carbs': 40, 'fat': 2, 'fiber': 4, 'sodium': 100, 'sugar': 1}
+2025-04-20 12:50:56,288 - INFO - === LLM CALL 3: DAILY SUMMARY GENERATION ===
+2025-04-20 12:50:56,288 - INFO - Foods logged: ['2 small carrots', '2 chapathis, 50ml milk']
+2025-04-20 12:50:56,288 - INFO - Total nutrition: {'calories': 288.0, 'protein': 9.74, 'carbs': 59.36, 'fat': 2.48, 'fiber': 9.8, 'sodium': 250.0, 'sugar': 10.5}
+2025-04-20 12:50:56,288 - INFO - Prompt sent to Gemini:
+
+    Based on this user's food intake for today:
+    2 small carrots, 2 chapathis, 50ml milk
+    
+    Total Nutrition:
+    - Calories: 288.0 kcal (Goal: 2000 kcal)
+    - Protein: 9.74g (Goal: 50g)
+    - Carbs: 59.36g (Goal: 275g)
+    - Fat: 2.48g (Goal: 70g)
+    - Fiber: 9.8g (Goal: 25g)
+    - Sugar: 10.5g (Goal: 50g)
+    - Sodium: 250.0mg (Goal: 2300mg)
+    
+    Create a detailed nutrition assessment with these sections:
+    
+    1. Significant Nutrient Discrepancies:
+    - For each nutrient that exceeds or falls below goals by more than 10%, calculate the exact percentage difference
+    - Format as: "Nutrient: You consumed Xg, which is Y% over/under your goal of Zg"
+    
+    2. Positive Nutrition Choices:
+    - Identify any healthy foods the user consumed
+    - Acknowledge good nutrition choices if present
+    
+    3. Recommendations for Tomorrow:
+    - Provide 3-4 specific, actionable recommendations
+    - Include specific food alternatives
+    - Suggest portion control strategies if calorie goal was exceeded
+    - Recommend specific foods to address nutrient deficiencies
+    
+    Make all recommendations specific, personalized to the foods they actually ate, and actionable.
+    
+2025-04-20 12:51:00,944 - INFO - Full Gemini response:
+## Nutrition Assessment
+
+**1. Significant Nutrient Discrepancies:**
+
+* **Protein:** You consumed 9.74g, which is 80.8% under your goal of 50g.
+* **Carbs:** You consumed 59.36g, which is 78.4% under your goal of 275g.
+* **Fat:** You consumed 2.48g, which is 96.4% under your goal of 70g.
+* **Fiber:** You consumed 9.8g, which is 60.8% under your goal of 25g.
+
+
+**2. Positive Nutrition Choices:**
+
+You made a good choice by including carrots and chapathis in your diet. Carrots are a good source of beta-carotene (converted to Vitamin A) and fiber. Chapathis, while low in fat, provide some carbohydrates and fiber.  The small amount of milk contributes some protein and calcium.  However, the overall quantity of food consumed is significantly low.
+
+**3. Recommendations for Tomorrow:**
+
+Your current intake is far below your daily goals in almost all macronutrients.  This indicates you need to significantly increase your food consumption to meet your energy and nutrient needs.  It's important to note that without knowing your activity level, body composition goals (weight loss, maintenance, gain), and any underlying health conditions, these recommendations are general guidelines.  Consult a registered dietitian or nutritionist for personalized advice.
+
+
+1. **Increase Protein and Healthy Fats:** Add a source of lean protein like 100g of grilled chicken breast (approx. 30g protein) or 2 eggs (approx. 12g protein) to your meals.  Incorporate healthy fats by adding 1 tablespoon of olive oil to your cooking or including a small portion of avocado (approx. 5g fat).  These additions will help boost your protein and fat intake significantly.
+
+2. **Boost Carbohydrate Intake:** Increase your carbohydrate consumption with more complex carbs, like an additional 2-3 chapathis or a portion of brown rice (approx. 50g carbs per cup cooked).  Focus on whole grains for added fiber.
+
+3. **Include More Fruits and Vegetables:** Add a serving of fruits (like a medium apple or banana) and more vegetables (like a cup of spinach or a large salad) to your diet.  This will increase your vitamin, mineral, and fiber intake.  Consider adding a larger portion of carrots (perhaps 5-7) to reach your daily fiber goal.
+
+4. **Consider Portion Sizes:** While increasing your intake is crucial, pay attention to portion sizes to meet your calorie goals without overshooting. You can use a food scale to measure portions accurately, especially for proteins and carbs.
+
+
+**Important Note:** The significant discrepancies in your nutrient intake suggest you may need to reassess your daily goals (particularly the calorie, protein and fat goals).  Consider consulting a healthcare professional or registered dietitian to determine appropriate nutrient targets based on your individual needs and activity levels.  Your current goals might be too high or too low, and adjusting them is crucial for sustainable and healthy eating habits.
+
+2025-04-20 12:51:00,944 - INFO - Final formatted summary for user:
+🍽️ *YOUR DAILY NUTRITION SUMMARY* 🍽️
+
+*Foods logged today:*
+1. 2 small carrots
+2. 2 chapathis, 50ml milk
+
+*Nutrition Totals:*
+• Calories: 288 kcal (14% of goal)
+• Protein: 9.7g (19% of goal)
+• Carbs: 59.4g (22% of goal)
+• Fat: 2.5g (4% of goal)
+• Fiber: 9.8g (39% of goal)
+• Sugar: 10.5g (21% of goal)
+• Sodium: 250mg (11% of goal)
+
+*Analysis & Recommendations:*
+## Nutrition Assessment
+
+**1. Significant Nutrient Discrepancies:**
+
+* **Protein:** You consumed 9.74g, which is 80.8% under your goal of 50g.
+* **Carbs:** You consumed 59.36g, which is 78.4% under your goal of 275g.
+* **Fat:** You consumed 2.48g, which is 96.4% under your goal of 70g.
+* **Fiber:** You consumed 9.8g, which is 60.8% under your goal of 25g.
+
+
+**2. Positive Nutrition Choices:**
+
+You made a good choice by including carrots and chapathis in your diet. Carrots are a good source of beta-carotene (converted to Vitamin A) and fiber. Chapathis, while low in fat, provide some carbohydrates and fiber.  The small amount of milk contributes some protein and calcium.  However, the overall quantity of food consumed is significantly low.
+
+**3. Recommendations for Tomorrow:**
+
+Your current intake is far below your daily goals in almost all macronutrients.  This indicates you need to significantly increase your food consumption to meet your energy and nutrient needs.  It's important to note that without knowing your activity level, body composition goals (weight loss, maintenance, gain), and any underlying health conditions, these recommendations are general guidelines.  Consult a registered dietitian or nutritionist for personalized advice.
+
+
+1. **Increase Protein and Healthy Fats:** Add a source of lean protein like 100g of grilled chicken breast (approx. 30g protein) or 2 eggs (approx. 12g protein) to your meals.  Incorporate healthy fats by adding 1 tablespoon of olive oil to your cooking or including a small portion of avocado (approx. 5g fat).  These additions will help boost your protein and fat intake significantly.
+
+2. **Boost Carbohydrate Intake:** Increase your carbohydrate consumption with more complex carbs, like an additional 2-3 chapathis or a portion of brown rice (approx. 50g carbs per cup cooked).  Focus on whole grains for added fiber.
+
+3. **Include More Fruits and Vegetables:** Add a serving of fruits (like a medium apple or banana) and more vegetables (like a cup of spinach or a large salad) to your diet.  This will increase your vitamin, mineral, and fiber intake.  Consider adding a larger portion of carrots (perhaps 5-7) to reach your daily fiber goal.
+
+4. **Consider Portion Sizes:** While increasing your intake is crucial, pay attention to portion sizes to meet your calorie goals without overshooting. You can use a food scale to measure portions accurately, especially for proteins and carbs.
+
+
+**Important Note:** The significant discrepancies in your nutrient intake suggest you may need to reassess your daily goals (particularly the calorie, protein and fat goals).  Consider consulting a healthcare professional or registered dietitian to determine appropriate nutrient targets based on your individual needs and activity levels.  Your current goals might be too high or too low, and adjusting them is crucial for sustainable and healthy eating habits.
+
