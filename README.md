@@ -239,6 +239,9 @@ LLM Response (personalized answer)
 - API rate limits may apply depending on provider
 - USDA database might not contain all food items
 
+## Demo
+- Demo of this chrome extension is available here [Demo](https://youtu.be/zodrJG9Ii6k) 
+
 ## 💡 Future Enhancements
 
 ### 1. MCP Integration
