@@ -66,7 +66,7 @@ A powerful Chrome extension that analyzes food images and provides healthy recip
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/recipe-modifier.git
+   git clone https://github.com/Rakavi-RP/recipe-modifier.git
    cd recipe-modifier
    ```
 
